@@ -8,7 +8,7 @@ module Slimmer::Processors
     def filter(content_document, page_template)
       if should_remove_meta_viewport?
         viewport = page_template.at_xpath('//head//meta[@name="viewport"]')
-        viewport.remove
+        viewport.remove if viewport
       end
     end
 
