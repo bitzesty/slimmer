@@ -90,7 +90,7 @@ module Slimmer
       GovukRequestId.value = env['HTTP_GOVUK_REQUEST_ID']
 
       rewritten_body = case response.status
-      when 200
+      when 200, 401
         @skin.success request, response, s(response.body)
       when 404
         @skin.error '404', s(response.body), request.env
